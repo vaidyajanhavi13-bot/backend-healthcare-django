@@ -97,7 +97,6 @@ A secure RESTful healthcare backend built with <strong>Django REST Framework</st
 
 ```text
 healthcare_backend/
-
 │
 ├── accounts/
 │   ├── migrations/
@@ -127,6 +126,7 @@ healthcare_backend/
 │   └── views.py
 │
 ├── patients/
+│   ├── migrations/
 │   ├── models.py
 │   ├── serializers.py
 │   ├── urls.py
@@ -136,95 +136,140 @@ healthcare_backend/
 ├── manage.py
 ├── README.md
 └── requirements.txt
- 
 ```
-<h2 id="api-endpoints">API Endpoints</h2> <h3>Authentication</h3>
 
-| Method | Endpoint              | Description                 |
-| ------ | --------------------- | --------------------------- |
-| POST   | `/api/auth/register/` | Register a new user         |
-| POST   | `/api/auth/login/`    | Login and obtain JWT tokens |
+<h2 id="api-endpoints">API Endpoints</h2>
+
+<h3>Authentication</h3>
+
+| Method | Endpoint | Description |
+| ------ | -------- | ----------- |
+| POST | `/api/auth/register/` | Register a new user |
+| POST | `/api/auth/login/` | Login and obtain JWT tokens |
 
 <h3>Patients</h3>
 
-| Method | Endpoint              | Description                        |
-| ------ | --------------------- | ---------------------------------- |
-| POST   | `/api/patients/`      | Create a patient                   |
-| GET    | `/api/patients/`      | List authenticated user's patients |
-| GET    | `/api/patients/<id>/` | Retrieve a patient                 |
-| PUT    | `/api/patients/<id>/` | Update a patient                   |
-| DELETE | `/api/patients/<id>/` | Delete a patient                   |
+| Method | Endpoint | Description |
+| ------ | -------- | ----------- |
+| POST | `/api/patients/` | Create a patient |
+| GET | `/api/patients/` | List authenticated user's patients |
+| GET | `/api/patients/<id>/` | Retrieve a patient |
+| PUT | `/api/patients/<id>/` | Update a patient |
+| DELETE | `/api/patients/<id>/` | Delete a patient |
 
 <h3>Doctors</h3>
 
-| Method | Endpoint             | Description       |
-| ------ | -------------------- | ----------------- |
-| POST   | `/api/doctors/`      | Create a doctor   |
-| GET    | `/api/doctors/`      | List doctors      |
-| GET    | `/api/doctors/<id>/` | Retrieve a doctor |
-| PUT    | `/api/doctors/<id>/` | Update a doctor   |
-| DELETE | `/api/doctors/<id>/` | Delete a doctor   |
+| Method | Endpoint | Description |
+| ------ | -------- | ----------- |
+| POST | `/api/doctors/` | Create a doctor |
+| GET | `/api/doctors/` | List doctors |
+| GET | `/api/doctors/<id>/` | Retrieve a doctor |
+| PUT | `/api/doctors/<id>/` | Update a doctor |
+| DELETE | `/api/doctors/<id>/` | Delete a doctor |
 
 <h3>Patient-Doctor Mappings</h3>
 
-| Method | Endpoint                      | Description                  |
-| ------ | ----------------------------- | ---------------------------- |
-| POST   | `/api/mappings/`              | Assign a doctor to a patient |
-| GET    | `/api/mappings/`              | List mappings                |
-| GET    | `/api/mappings/<patient_id>/` | Get mappings for a patient   |
-| DELETE | `/api/mappings/<id>/`         | Delete a mapping             |
-
+| Method | Endpoint | Description |
+| ------ | -------- | ----------- |
+| POST | `/api/mappings/` | Assign a doctor to a patient |
+| GET | `/api/mappings/` | List mappings |
+| GET | `/api/mappings/<patient_id>/` | Get mappings for a patient |
+| DELETE | `/api/mappings/<id>/` | Delete a mapping |
 
 ---
+
 <h2 id="authentication">Authentication</h2>
 
-<p> The API uses JWT authentication through <strong>djangorestframework-simplejwt</strong>. </p> <p> After successful login, the API returns an access token and a refresh token. </p> <p> Protected endpoints require the JWT access token. </p>
+<p>
+The API uses JWT authentication through <strong>djangorestframework-simplejwt</strong>.
+</p>
+
+<p>
+After successful login, the API returns an access token and a refresh token.
+</p>
+
+<p>
+Protected endpoints require the JWT access token.
+</p>
 
 In Postman:
 
-**Authorization → Bearer Token → `<access_token>`**
+<strong>Authorization → Bearer Token → <code>&lt;access_token&gt;</code></strong>
 
 ---
-<h2 id="installation">Installation</h2> <h3>1. Clone the Repository</h3>
-git clone <https://github.com/vaidyajanhavi13-bot/backend-healthcare-django.git>
+
+<h2 id="installation">Installation</h2>
+
+<h3>1. Clone the Repository</h3>
+
+```bash
+git clone https://github.com/vaidyajanhavi13-bot/backend-healthcare-django
+```
 
 <h3>2. Navigate to the Project Folder</h3>
+
+```bash
 cd healthcare_backend
+```
 
 <h3>3. Create a Virtual Environment</h3>
+
+```bash
 python -m venv venv
+```
 
 <h3>4. Activate the Virtual Environment</h3>
+
 <strong>Windows</strong>
+
+```bash
 venv\Scripts\activate
+```
 
 <strong>Linux / macOS</strong>
+
+```bash
 source venv/bin/activate
+```
 
 <h3>5. Install Dependencies</h3>
+
+```bash
 pip install -r requirements.txt
+```
 
 <h3>6. Configure Environment Variables</h3>
-Create a .env file in the project root:
+
+Create a `.env` file in the project root:
+
+```env
 SECRET_KEY=your-secret-key
 DEBUG=True
-
 DB_NAME=healthcare_db
 DB_USER=postgres
 DB_PASSWORD=your-postgres-password
 DB_HOST=localhost
 DB_PORT=5432
+```
 
 <h3>7. Apply Database Migrations</h3>
+
+```bash
 python manage.py migrate
+```
 
 <h3>8. Start the Development Server</h3>
+
+```bash
 python manage.py runserver
+```
 
 The API will be available at:
+
 http://127.0.0.1:8000/
 
 ---
+
 <h2 id="testing">Testing</h2>
 
 The API endpoints were tested using <strong>Postman</strong>.
@@ -245,7 +290,9 @@ Tested functionality includes:
 - Permission checks for patient ownership
 
 ---
+
 <h2 id="what-i-learned">What I Learned</h2>
+
 While building this project, I gained practical experience with:
 
 - Django REST Framework
@@ -263,11 +310,11 @@ While building this project, I gained practical experience with:
 - Git & GitHub
 
 ---
+
 <h2 id="author">Author</h2>
 
 <strong>Janhavi Vaidya</strong>
 
-<br> <a href="https://github.com/vaidyajanhavi13-bot"> GitHub Profile </a> <br> 
-<a href="https://www.linkedin.com/in/janhavi-vaidya-79b8b4333"> LinkedIn Profile </a> ```
+<a href="https://github.com/vaidyajanhavi13-bot">GitHub Profile</a>
 
-
+<a href="https://www.linkedin.com/in/janhavi-vaidya-79b8b4333">LinkedIn Profile</a>
