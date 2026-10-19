@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'patients',
     'doctors',
     'mappings',
+    'frontend',
 ]
 
 AUTH_USER_MODEL = "accounts.User"

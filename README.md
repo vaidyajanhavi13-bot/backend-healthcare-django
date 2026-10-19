@@ -1,8 +1,12 @@
 <h1 align="center">🏥 Healthcare Backend API</h1>
 
 <p align="center">
-A secure RESTful healthcare backend built with <strong>Django REST Framework</strong> and <strong>PostgreSQL</strong>, featuring JWT authentication, patient and doctor management, and patient-doctor mapping.
+A healthcare management application built with Django, Django REST Framework, and PostgreSQL. It provides REST APIs for user authentication, patient management, doctor management, and patient-doctor assignments, along with a simple Bootstrap-based web interface.
 </p>
+
+## 📸 Dashboard Preview
+
+![Healthcare Management System Dashboard](dashboard.png)
 
 <h2>📌 Table of Contents</h2>
 
@@ -14,8 +18,7 @@ A secure RESTful healthcare backend built with <strong>Django REST Framework</st
 <a href="#authentication">Authentication</a> •
 <a href="#installation">Installation</a> •
 <a href="#testing">Testing</a> •
-<a href="#what-i-learned">What I Learned</a> •
-<a href="#author">Author</a>
+<a href="#what-i-learned">What I Learned</a>
 </p>
 
 ---
@@ -84,6 +87,13 @@ A secure RESTful healthcare backend built with <strong>Django REST Framework</st
 - JSON Web Token (JWT)
 - djangorestframework-simplejwt
 
+<h3>Frontend</h3>
+
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+
 <h3>Other Technologies</h3>
 
 - Django ORM
@@ -100,38 +110,74 @@ healthcare_backend/
 │
 ├── accounts/
 │   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
 │   ├── models.py
 │   ├── serializers.py
+│   ├── tests.py
 │   ├── urls.py
 │   └── views.py
 │
 ├── doctors/
 │   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
 │   ├── models.py
 │   ├── serializers.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+│
+├── frontend/
+│   ├── migrations/
+│   ├── static/
+│   │   └── style.css
+│   ├── templates/
+│   │   └── frontend/
+│   │       ├── dashboard.html
+│   │       ├── doctors.html
+│   │       ├── mappings.html
+│   │       └── patients.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
 │   ├── urls.py
 │   └── views.py
 │
 ├── healthcare/
+│   ├── __init__.py
+│   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
-│   ├── asgi.py
 │   └── wsgi.py
 │
 ├── mappings/
 │   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
 │   ├── models.py
 │   ├── serializers.py
+│   ├── tests.py
 │   ├── urls.py
 │   └── views.py
 │
 ├── patients/
 │   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
 │   ├── models.py
 │   ├── serializers.py
+│   ├── tests.py
 │   ├── urls.py
 │   └── views.py
 │
+├── .env
 ├── .gitignore
 ├── manage.py
 ├── README.md
